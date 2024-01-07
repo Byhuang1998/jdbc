@@ -12,7 +12,7 @@ import java.sql.Statement;
  */
 public class JDBCDemo {
 
-    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+    public static void main(String[] args) throws SQLException {
 
         Connection connection = JDBCUtil.getConnection();
         // 定义sql
