@@ -21,14 +21,18 @@ public class ConnectionDemo {
         try {
 
             // 定义sql
-            String sql1 = "update user set phone = '777' where id = 1";
+            String sql1 = "update user set phone = '666' where id = 1";
 
-            String sql2 = "update user set phone = '777' where id = 2";
+            String sql2 = "update user set phone = '666' where id = 2";
 
             // 获取执行sql的对象
             statement = connection.createStatement();
             // 执行更新语句
             statement.executeUpdate(sql1);
+
+            // 若放开这一行，出现了异常，事务会回滚，相当于两条sql都没有执行
+             int x = 9 / 0;
+
             statement.executeUpdate(sql2);
             // 提交事务
             connection.commit();
