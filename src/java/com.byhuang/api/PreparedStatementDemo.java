@@ -2,28 +2,28 @@ package com.byhuang.api;
 
 import com.byhuang.util.JDBCUtil;
 
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 
 /**
- * 查询语句返回结果对象
+ * 预编译执行SQL对象
  */
-public class ResultSetDemo {
+public class PreparedStatementDemo {
 
     public static void main(String[] args) throws SQLException {
 
         Connection connection = JDBCUtil.getConnection();
-        Statement statement = null;
 
-        // 定义sql
-        String sql = "select * from user";
+        // 定义sql，用？表示查询的条件
+        String sql = "select * from user where name = ? and phone = ?";
 
-        // 获取执行sql的对象
-        statement = connection.createStatement();
+        PreparedStatement statement = connection.prepareStatement(sql);
+
+        // 设置？的值
+        statement.setString(1, "zs");
+        statement.setString(2, "777");
+
         // 执行更新语句
-        ResultSet resultSet = statement.executeQuery(sql);
+        ResultSet resultSet = statement.executeQuery();
 
         while (resultSet.next()) {
             Long id = resultSet.getLong("id");
