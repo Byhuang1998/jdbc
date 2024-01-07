@@ -13,12 +13,13 @@ public class PreparedStatementDemo {
 
         Connection connection = JDBCUtil.getConnection();
 
-        // 定义sql，用？表示查询的条件
+        // 定义sql，用？作为占位符表示查询的参数
         String sql = "select * from user where name = ? and phone = ?";
 
+        // 需要传入sql作为参数
         PreparedStatement statement = connection.prepareStatement(sql);
 
-        // 设置？的值
+        // 第一个参数表示第几个占位符，设置？的值
         statement.setString(1, "zs");
         statement.setString(2, "777");
 
