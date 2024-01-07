@@ -3,8 +3,6 @@ package com.byhuang.test;
 import com.byhuang.util.JDBCUtil;
 
 import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -12,11 +10,11 @@ import java.sql.Statement;
  */
 public class JDBCDemo {
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws Exception {
 
         Connection connection = JDBCUtil.getConnection();
         // 定义sql
-        String sql = "update user set phone = '444' where id = 1";
+        String sql = "update user set phone = '666' where id = 1";
         // 获取执行sql的对象
         Statement statement = connection.createStatement();
         // 执行更新语句

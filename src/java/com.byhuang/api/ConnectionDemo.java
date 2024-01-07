@@ -3,7 +3,6 @@ package com.byhuang.api;
 import com.byhuang.util.JDBCUtil;
 
 import java.sql.Connection;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 /**
@@ -11,7 +10,7 @@ import java.sql.Statement;
  */
 public class ConnectionDemo {
 
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) throws Exception {
 
         Connection connection = JDBCUtil.getConnection();
         Statement statement = null;
