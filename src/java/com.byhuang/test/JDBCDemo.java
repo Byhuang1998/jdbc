@@ -14,7 +14,7 @@ public class JDBCDemo {
 
         Connection connection = JDBCUtil.getConnection();
         // 定义sql
-        String sql = "update user set phone = '666' where id = 1";
+        String sql = "update user set phone = '888' where id = 1";
         // 获取执行sql的对象
         Statement statement = connection.createStatement();
         // 执行更新语句
